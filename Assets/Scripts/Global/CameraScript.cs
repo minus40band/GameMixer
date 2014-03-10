@@ -9,6 +9,11 @@ public class CameraScript : MonoBehaviour {
 	public int SecondForTick = 5;
 	private bool menuActive = false;
 	void Start () {
+		if(Global.LimitTime - Global.SummaryTime < SecondForTick + Time.deltaTime)
+		{
+			(this.GetComponent("AudioSource") as AudioSource).Play();
+			SecondForTick--;
+		}
 		GUIParam.Init (ScoreStyle,TimerStyle);
 		//audio.PlayOneShot(backgroundmusic);
 	}

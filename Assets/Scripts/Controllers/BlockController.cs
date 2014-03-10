@@ -3,9 +3,10 @@ using System.Collections;
 
 public class BlockController : MonoBehaviour {
 
+	public bool Position = false;
 	public bool Velocity = true;
 	public bool Force = false;
-	public int Speed = 0;
+	public int Speed = 10;
 	private double ypos = 0;
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,16 @@ public class BlockController : MonoBehaviour {
 				this.rigidbody2D.velocity = new Vector2(touchposition.x,0).normalized*Speed;
 			if(Force)
 				this.rigidbody2D.AddForce(new Vector2(touchposition.x,0).normalized*Speed);
+			if(Position)
+				this.transform.position = new Vector2(touchposition.x,(float)ypos);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if(!coll.gameObject.tag.Equals("Player"))
+		{
+			this.transform.position = new Vector2(coll.gameObject.transform.position + coll.gameObject.transform.localScale/2,(float)ypos);
 		}
 	}
 }

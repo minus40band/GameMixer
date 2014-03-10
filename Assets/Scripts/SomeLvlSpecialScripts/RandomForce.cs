@@ -8,14 +8,14 @@ public class RandomForce : MonoBehaviour {
 	public float YForce = 0;
 	// Use this for initialization
 	void Start () {
-		switch(Global.GetRandom(0,1))
+		if((new System.Random()).NextDouble()<0.5)
 		{
-			case 0:
-				this.tag = "Achive";
-				break;
-			case 1:
-				this.tag = "Enemy";
-				break;
+			this.transform.localScale = this.transform.localScale * 2;
+			this.gameObject.tag = "Achive";
+		}
+		else
+		{
+			this.gameObject.tag = "Enemy";
 		}
 		this.rigidbody2D.AddForce(new Vector2(XForce,YForce));
 	}
@@ -30,6 +30,10 @@ public class RandomForce : MonoBehaviour {
 		if(this.tag.Equals("Enemy"))
 		{
 			Global.LoadLvlLose();
+		}
+		if(this.tag.Equals("Achive"))
+		{
+			(GameObject.FindWithTag("MainCamera").GetComponent("TakeAchive") as TakeAchive).AchiveForWin--;
 		}
 		this.gameObject.SetActive(false);
 	}
