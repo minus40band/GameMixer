@@ -7,7 +7,7 @@ public class BlockController : MonoBehaviour {
 	public bool Velocity = true;
 	public bool Force = false;
 	public int Speed = 10;
-	private double ypos = 0;
+	private float ypos = 0;
 	// Use this for initialization
 	void Start () {
 		ypos = this.transform.position.y;
@@ -38,7 +38,8 @@ public class BlockController : MonoBehaviour {
 	{
 		if(!coll.gameObject.tag.Equals("Player"))
 		{
-			this.transform.position = new Vector2(coll.gameObject.transform.position + coll.gameObject.transform.localScale/2,(float)ypos);
+			float xpos = coll.gameObject.transform.position.x + coll.gameObject.transform.localScale.x/2;
+			this.transform.position.Set(xpos,ypos,this.transform.position.z);
 		}
 	}
 }
