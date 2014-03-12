@@ -33,8 +33,7 @@ public class AcelerometrAsixController : MonoBehaviour {
 			if(Velocity)
 				this.rigidbody2D.velocity = new Vector2(Input.acceleration.x * SpeedControll,this.rigidbody2D.velocity.y);
 			if(Forcer)
-				this.rigidbody2D.AddForce(new Vector2(Input.acceleration.x * SpeedControll,0));
-			
+				this.rigidbody2D.AddForce(new Vector2(Input.acceleration.x * SpeedControll,0));	
 		}
 		if(YFixedAsix)
 		{
