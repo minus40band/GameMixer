@@ -17,6 +17,7 @@ public class RandomForce : MonoBehaviour {
 		{
 			this.gameObject.tag = "Enemy";
 		}
+		this.rigidbody2D.mass = Global.GetRandom(1,15);
 		this.rigidbody2D.AddForce(new Vector2(XForce,YForce));
 	}
 	

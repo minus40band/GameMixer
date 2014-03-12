@@ -43,7 +43,7 @@ public class AcelerometrAsixController : MonoBehaviour {
 		else
 		{
 			if(Velocity)
-				this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x,Input.acceleration.y * SpeedControll);
+				this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x,this.rigidbody2D.velocity.y + Input.acceleration.y * SpeedControll);
 			if(Forcer)
 				this.rigidbody2D.AddForce(new Vector2(0,Input.acceleration.y * SpeedControll));
 		}
@@ -54,6 +54,14 @@ public class AcelerometrAsixController : MonoBehaviour {
 		if(coll.gameObject.tag.Equals("Ground"))
 		{
 			Global.LoadLvlLose(Application.loadedLevel);
+		}
+		if(coll.gameObject.tag.Equals("Achive"))
+		{
+			coll.gameObject.SetActive(false);
+			if(GameObject.FindGameObjectsWithTag("Achive").Length.Equals(0))
+			{
+				Global.LoadLvlComplite();
+			}
 		}
 	}
 }
