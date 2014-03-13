@@ -63,7 +63,6 @@ public class SplashScene : MonoBehaviour {
 		    	SplashImage.LoadingLvl != 0) 
 			{
 				SplashImage.Drop();
-				//(GameObject.FindWithTag("Achive").GetComponent("SpriteRenderer") as SpriteRenderer).sprite = null;
 				Global.LoadLvl(SplashImage.LoadingLvl);
 			}
 		}

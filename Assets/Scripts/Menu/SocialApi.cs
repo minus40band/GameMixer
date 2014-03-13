@@ -8,6 +8,17 @@ public class SocialApi : MonoBehaviour {
 		// Authenticate and register a ProcessAuthentication callback
 		// This call needs to be made before we can proceed to other calls in the Social API
 		Social.localUser.Authenticate (ProcessAuthentication);
+		/*achievement = Social.CreateAchievement();
+		achievement.id = "Achievement01";
+		achievement.percentCompleted = 0.0;
+		achievement.ReportProgress( result => {
+			if (result)
+				Debug.Log ("Successfully reported progress");
+			else
+				Debug.Log ("Failed to report progress");
+		});
+		Global.SummaryTime = 0;
+		Global.Points = -1;*/
 	}
 	
 	// This function gets called when Authenticate completes

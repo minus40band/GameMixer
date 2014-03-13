@@ -4,9 +4,8 @@ using System.Collections;
 public class BackClick : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		NetworkConnector.StartRecive();
-		NetworkConnector.Send("ggg");
+	void Start () 
+	{
 	}
 	
 	// Update is called once per frame

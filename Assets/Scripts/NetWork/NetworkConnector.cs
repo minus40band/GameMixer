@@ -11,7 +11,7 @@ using System.Net.NetworkInformation;
 using UnityEngine;
 public static class NetworkConnector
 {
-	public static String connectionIP = "127.0.0.1";
+	public static String connectionIP = "217.71.141.117";
 	public static int connectionPort = 2500;
 
 	public static void Connect()
@@ -58,13 +58,11 @@ public static class NetworkConnector
 	{
 		try
 		{
-			IPAddress ip;
 			String MessageText = " ";
 			if (MessageAndIP is MessageTextAndIP)
 			{
 				MessageTextAndIP m = MessageAndIP as MessageTextAndIP;
 				MessageText = m.message;
-				ip = m.ip;
 			}
 			else
 			{
