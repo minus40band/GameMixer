@@ -39,6 +39,13 @@ public static class Global
 		System.Random r = new System.Random();
 		return r.NextDouble();
 	}
+
+	public static double GetRandomDouble(double minimum, double maximum)
+	{ 
+		System.Random random = new System.Random();
+		return (random.NextDouble() * (double)System.Math.Abs((float)maximum - (float)minimum)) + minimum;
+	}
+
 	public static int GetRandom(int minimum,int maximum)
 	{
 		System.Random r = new System.Random();
