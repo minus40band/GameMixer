@@ -11,11 +11,15 @@ using System.Net.NetworkInformation;
 using UnityEngine;
 public static class NetworkConnector
 {
-	public static String connectionIP = "217.71.141.117";
+	public static string connectionIP = "168.61.88.210";
 	public static int connectionPort = 2500;
+	public static string connectronDns = "gamemixer.cloudapp.net";
 
 	public static void Connect()
 	{
+		IPHostEntry ipHostInfo = Dns.Resolve(connectronDns);
+		connectionIP = ipHostInfo.AddressList[0].ToString();
+		Debug.Log ("connectionIP: " + connectionIP);
 	}
 	public static void Send(String text)
 	{
@@ -30,6 +34,7 @@ public static class NetworkConnector
 	//Поток отправления сообщения Message
 	private static void ThreadSend(System.Object Message)
 	{
+		Debug.Log ("Start Send");
 		try
 		{
 			String MessageText = " ";
@@ -44,8 +49,9 @@ public static class NetworkConnector
 			IPEndPoint EndPoint = new IPEndPoint(IPAddress.Parse(connectionIP),connectionPort);
 			Socket Connector = new Socket(EndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 			Connector.Connect(EndPoint);
-			Byte[] sendbytes = Encoding.Default.GetBytes(Environment.UserName + ": " + MessageText);
+			Byte[] sendbytes = Encoding.Default.GetBytes(Message as String);
 			Connector.Send(sendbytes);
+			Debug.Log ("Send complite");
 			Connector.Close();
 		}
 		catch (System.Exception ex)
@@ -85,27 +91,29 @@ public static class NetworkConnector
 	{
 		try
 		{
-			TcpListener Listener = new TcpListener(new IPEndPoint(IPAddress.Parse(connectionIP),connectionPort));;
-			Listener.Start();
-			Socket ReciverSocket;
+			IPEndPoint EndPoint = new IPEndPoint(IPAddress.Parse(connectionIP),connectionPort);
+			Socket Connector = new Socket(EndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+			Connector.Connect(EndPoint);
 			while (true)
 			{
-				ReciverSocket = Listener.AcceptSocket();
-				Byte[] Recive = new Byte[256];
+				Byte[] Recive = new Byte[1024];
 				MemoryStream MessageR = new MemoryStream();
-				Int32 RecivedBytes;
-				do 
+				Int32 RecivedBytes = 0;
+				Debug.Log ("Try connect for receive");
+				RecivedBytes = Connector.Receive(Recive);
+				Debug.Log ("Connect sucsesful");
+				if(RecivedBytes>0)
 				{
-					RecivedBytes = ReciverSocket.Receive(Recive, Recive.Length, 0);
 					MessageR.Write(Recive, 0, RecivedBytes);
-				} while (ReciverSocket.Available > 0);
-				Debug.Log(Encoding.Default.GetString(MessageR.ToArray()));
+					Debug.Log (Encoding.Default.GetString(MessageR.ToArray()));
+				}
 			}
 		}
 		catch (System.Exception ex)
 		{
 			Debug.Log(ex.Message);	
 		}
+		Debug.Log ("1zzcx0");
 	}
 }	
 class MessageTextAndIP

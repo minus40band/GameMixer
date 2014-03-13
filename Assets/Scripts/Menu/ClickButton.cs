@@ -2,9 +2,11 @@
 using UnityEngine.SocialPlatforms;
 using System.Collections;
 public class ClickButton : MonoBehaviour {
+
 	void Start () 
 	{
-		NetworkConnector.Send("0x01|DDD|1");
+		NetworkConnector.Connect();
+		NetworkConnector.Send("0x01|DDDD|122");
 		NetworkConnector.StartRecive();
 	}
 	
