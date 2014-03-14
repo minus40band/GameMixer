@@ -15,6 +15,6 @@ public class ClickButton : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		Global.LoadLvlComplite();
+		Global.StartGame();
 	}
 }

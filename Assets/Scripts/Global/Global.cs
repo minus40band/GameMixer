@@ -76,4 +76,10 @@ public static class Global
 		CurrentLvl = 0;
 		LoadLvl(1);
 	}
+
+	public static void StartGame()
+	{
+		CurrentLvl = GetRandom();
+		LoadLvl(1);
+	}
 }
