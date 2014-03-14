@@ -23,7 +23,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -35,7 +35,6 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -55,7 +54,6 @@ TextureImporter:
         height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_1
       rect:
         serializedVersion: 2
@@ -65,7 +63,6 @@ TextureImporter:
         height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_2
       rect:
         serializedVersion: 2
@@ -75,7 +72,6 @@ TextureImporter:
         height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_3
       rect:
         serializedVersion: 2
@@ -85,7 +81,6 @@ TextureImporter:
         height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_4
       rect:
         serializedVersion: 2
@@ -95,7 +90,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_5
       rect:
         serializedVersion: 2
@@ -105,7 +99,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_6
       rect:
         serializedVersion: 2
@@ -115,7 +108,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_7
       rect:
         serializedVersion: 2
@@ -125,7 +117,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_8
       rect:
         serializedVersion: 2
@@ -135,7 +126,6 @@ TextureImporter:
         height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_9
       rect:
         serializedVersion: 2
@@ -145,7 +135,6 @@ TextureImporter:
         height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_10
       rect:
         serializedVersion: 2
@@ -155,7 +144,6 @@ TextureImporter:
         height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_11
       rect:
         serializedVersion: 2
@@ -165,7 +153,6 @@ TextureImporter:
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_12
       rect:
         serializedVersion: 2
@@ -175,7 +162,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_13
       rect:
         serializedVersion: 2
@@ -185,7 +171,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_14
       rect:
         serializedVersion: 2
@@ -195,7 +180,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: pig_eat_15
       rect:
         serializedVersion: 2
@@ -205,6 +189,5 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

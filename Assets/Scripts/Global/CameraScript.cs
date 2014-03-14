@@ -19,7 +19,18 @@ public class CameraScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		if(Input.GetKeyUp(KeyCode.S))
+		{
+			NetworkConnector.Connect();
+			NetworkConnector.Registration(System.Environment.UserName);
+			NetworkConnector.SetScore(Global.Points,5);
+			NetworkConnector.GetScore(0);
+			NetworkConnector.GetPosition(0);
+			//NetworkConnector.Send("0x01|DD|2");
+			//NetworkConnector.StartRecive();
+		}
 		Global.AddTime();
 		if(Input.GetKey(KeyCode.Escape))
 		{

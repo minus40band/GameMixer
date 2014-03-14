@@ -5,7 +5,7 @@ public static class Global
 {
 	public static int LimitTime = 30;
 	public static int CurrentLvl = 0;
-	public static int Points = -1;
+	public static int Points = 0;
 	public static float SummaryTime = 0.0f;
 	public enum Levels
 	{
