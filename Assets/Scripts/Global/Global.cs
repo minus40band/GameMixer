@@ -79,6 +79,10 @@ public static class Global
 
 	public static void StartGame()
 	{
+		Global.LimitTime = 30;
+	    CurrentLvl = 0;
+		Points = 0;
+		SummaryTime = 0.0f;
 		CurrentLvl = GetRandom();
 		LoadLvl(1);
 	}
