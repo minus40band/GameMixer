@@ -12,6 +12,7 @@ public class AcelerometrAsixController : MonoBehaviour {
 	public bool CameraTransform = false;
 	public bool Forcer = false;
 	public bool Velocity = false;
+	public bool ReplaceVelocity = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -31,7 +32,10 @@ public class AcelerometrAsixController : MonoBehaviour {
 		else
 		{
 			if(Velocity)
-				this.rigidbody2D.velocity = new Vector2(Input.acceleration.x * SpeedControll,this.rigidbody2D.velocity.y);
+				if(ReplaceVelocity)
+					this.rigidbody2D.velocity = new Vector2(Input.acceleration.x * SpeedControll,this.rigidbody2D.velocity.y);
+				else
+					this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x + Input.acceleration.x * SpeedControll,this.rigidbody2D.velocity.y);
 			if(Forcer)
 				this.rigidbody2D.AddForce(new Vector2(Input.acceleration.x * SpeedControll,0));	
 		}
@@ -42,7 +46,10 @@ public class AcelerometrAsixController : MonoBehaviour {
 		else
 		{
 			if(Velocity)
-				this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x,this.rigidbody2D.velocity.y + Input.acceleration.y * SpeedControll);
+				if(ReplaceVelocity)
+					this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x,Input.acceleration.y * SpeedControll);
+				else
+					this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x,this.rigidbody2D.velocity.y + Input.acceleration.y * SpeedControll);
 			if(Forcer)
 				this.rigidbody2D.AddForce(new Vector2(0,Input.acceleration.y * SpeedControll));
 		}

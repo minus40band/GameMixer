@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using GameMixerAPI;
 using System.Collections;
 
 public static class Global 
@@ -14,7 +15,10 @@ public static class Global
 		Levels_Labirint,
 		Levels_Bread,
 		Levels_Puke,
-		Levels_Dead
+		Levels_Dead,
+		Levels_Balance,
+		Levels_Cube,
+		Levels_DedRally
 	}
 	public static void AddTime()
 	{
@@ -72,6 +76,16 @@ public static class Global
 	}
 	public static void LoadLvlLose()
 	{
+		try
+		{
+			UserParametrs.UserScore = Points;
+			GameMixerAPI.Methods.SetScore(UserParametrs.UserID.ToString(),UserParametrs.UserScore.ToString());
+			GameMixerAPI.Methods.GetPosition(UserParametrs.UserID.ToString());
+		}
+		catch
+		{
+
+		}
 		SplashImage.SetSprite("Splash/lose");
 		CurrentLvl = 0;
 		LoadLvl(1);

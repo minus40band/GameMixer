@@ -8,6 +8,7 @@ using System.IO;
 using System.Security.Principal;
 using System.Runtime.InteropServices;
 using System.Net.NetworkInformation;
+using GameMixerAPI;
 using UnityEngine;
 public static class NetworkConnector
 {
@@ -25,6 +26,11 @@ public static class NetworkConnector
 	public static void Connect()
 	{
 
+	}
+
+	public static void GetUserID(string name)
+	{
+		GameMixerAPI.Methods.GetIDByName(name);
 	}
 
 	public static void Registration(string name)
@@ -130,15 +136,6 @@ public static class NetworkConnector
 		Debug.Log("Start Thread Send");
 		try
 		{
-			String MessageText = " ";
-			if (Message is String)
-			{
-				MessageText = Message as String;
-			}
-			else
-			{
-				throw new Exception("На вход ожидалась строка");
-			}
 			IPEndPoint EndPoint = new IPEndPoint(IPAddress.Parse(connectionIP),connectionPort);
 			Socket Connector = new Socket(EndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 			Connector.Connect(EndPoint);

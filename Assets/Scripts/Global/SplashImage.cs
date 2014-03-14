@@ -44,6 +44,22 @@ public static class SplashImage
 			SetSprite("Splash/shake");
 			//text = "SHAKE";
 			break;
+		case (int)Global.Levels.Levels_Balance:
+			SetSprite("Splash/balance");
+			//text = "SHAKE";
+			break;
+		case (int)Global.Levels.Levels_Cube:
+			SetSprite("Splash/pick");
+			//text = "SHAKE";
+			break;
+		case (int)Global.Levels.Levels_DedRally:
+			SetSprite("Splash/jump");
+			//text = "SHAKE";
+			break;
+		default:
+			text = "SomeLvl";
+			break;
+
 		}
 	}
 	public static void SetText(String _text)

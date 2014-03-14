@@ -18,7 +18,7 @@ public class WaveForceForBalance : MonoBehaviour {
 	void Update () {
 		if(GoForce)
 		{
-			float i = System.Math.Abs(Input.acceleration.normalized.y)/2;
+			float i = System.Math.Abs(Input.acceleration.normalized.y)/5;
 			if(Force)
 			{
 				if(Global.GetRandomDouble() > 0.5)
