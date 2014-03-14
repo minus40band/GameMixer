@@ -56,7 +56,7 @@ public static class GUIParam
 	public static void CallMenu(ref bool menuActive)
 	{
 		GUI.Label(ScoreLabel,"Score:" + Global.Points,ScoreStyle);
-		GUI.Label(TimeLabel,"Second:" + (Global.LimitTime-(int)Global.SummaryTime),TimerStyle);
+		GUI.Label(TimeLabel,"Time:" + (Global.LimitTime-(int)Global.SummaryTime),TimerStyle);
 		if(menuActive)
 		{
 			GUI.Label(MenuLabel1,"Game Paused",ScoreStyle);
