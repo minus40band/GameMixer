@@ -10,6 +10,16 @@ public class SplashScene : MonoBehaviour {
 	{
 		SplashImage.init();
 		edit();
+		if(!Global.VISIBLE_SCORE)
+		{
+			GameObject.Find("ScoreText").SetActive(false);
+			GameObject.Find("ScoreNumber").SetActive(false);
+		}
+		if(!Global.VISIBLE_TIME)
+		{
+			GameObject.Find("TimeText").SetActive(false);
+			GameObject.Find("TimeNumber").SetActive(false);
+		}
 		new System.Threading.Thread(del).Start();
 	}
 	
@@ -26,12 +36,13 @@ public class SplashScene : MonoBehaviour {
 
 	public void edit()
 	{
-		GUIText scoreNumber = (GameObject.Find("ScoreNumber").GetComponent("GUIText") as GUIText);
-		scoreNumber.text = SplashImage.score;
-		scoreNumber.fontSize += scoreNumber.fontSize * (int)Device.MultiX;
+
 		GUIText text = (GameObject.Find("Text").GetComponent("GUIText") as GUIText);
 		text.text = SplashImage.text;
 		text.fontSize += text.fontSize * (int)Device.MultiX;
+		GUIText scoreNumber = (GameObject.Find("ScoreNumber").GetComponent("GUIText") as GUIText);
+		scoreNumber.text = SplashImage.score;
+		scoreNumber.fontSize += scoreNumber.fontSize * (int)Device.MultiX;
 		GUIText timeNumber = (GameObject.Find("TimeNumber").GetComponent("GUIText") as GUIText);
 		timeNumber.text = SplashImage.time;
 		timeNumber.fontSize += timeNumber.fontSize * (int)Device.MultiX;

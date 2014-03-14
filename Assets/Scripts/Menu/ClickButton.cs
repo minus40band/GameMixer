@@ -4,6 +4,8 @@ using System.Collections;
 using GameMixerAPI;
 public class ClickButton : MonoBehaviour {
 
+	public int mode = 0;
+
 	void Start () 
 	{
 
@@ -17,6 +19,7 @@ public class ClickButton : MonoBehaviour {
 
 	void OnMouseDown()
 	{
+		Global.MODE = mode;
 		Global.StartGame();
 	}
 }

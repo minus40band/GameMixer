@@ -11,12 +11,16 @@ public class StartNetworkScript : MonoBehaviour {
 	private Rect element1;
 	private Rect element2;
 	private Rect element3;
+	private Rect element4;
+	private Rect element5;
 	// Use this for initialization
 	void Start () 
 	{
 		element1 = new Rect(GUIParam.ScoreLabel.x,GUIParam.ScoreLabel.y,width,heigth);
 		element2 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width,heigth);
 		element3 = new Rect(GUIParam.ScoreLabel.x,heigth * 2 + GUIParam.ScoreLabel.y,width,heigth);
+		element4 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width/2,heigth);
+		element5 = new Rect((width/2) + GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width/2,heigth);
 	}
 	
 	// Update is called once per frame
@@ -32,16 +36,19 @@ public class StartNetworkScript : MonoBehaviour {
 	public void GUIElement()
 	{
 		GUI.skin = SkinName;
-		if(System.String.IsNullOrEmpty(UserParametrs.UserName))
+		if(System.String.IsNullOrEmpty(UserParametrs.UserName) || UserParametrs.UserID<=0)
 		{
-			if (GUI.Button (element2, "Registration"))
+			if (GUI.Button (element4, "SignUp"))
 			{
 				UserParametrs.UserName = TextBoxName;
-				Debug.Log(GameMixerAPI.Methods.Registration(UserParametrs.UserName,"0"));
-				UserParametrs.UserID = System.Int32.Parse(GameMixerAPI.Methods.GetIDByName("DizzyStyle"));
-				Debug.Log(GameMixerAPI.Methods.SetScore(UserParametrs.UserID.ToString(),"3"));
-				UserParametrs.UserPosition = System.Int32.Parse(GameMixerAPI.Methods.GetPosition(UserParametrs.UserID.ToString()));
-				Debug.Log(UserParametrs.UserPosition);
+				UserParametrs.UserID = GameMixerAPI.Methods.Registration(UserParametrs.UserName,500);//UserParametrs.UserScore);
+				NetworkConnector.UpdateData();
+			}
+			if (GUI.Button (element5, "SignIn"))
+			{
+				UserParametrs.UserName = TextBoxName;
+				UserParametrs.UserID = GameMixerAPI.Methods.GetIDByName(UserParametrs.UserName);
+				NetworkConnector.UpdateData();
 			}
 			TextBoxName = GUI.TextField(element1,TextBoxName,10);
 		}

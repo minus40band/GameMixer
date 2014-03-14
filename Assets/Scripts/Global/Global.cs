@@ -4,6 +4,10 @@ using System.Collections;
 
 public static class Global 
 {
+	public static int MODE = 0;
+	public static bool VISIBLE_SCORE = true;
+	public static bool VISIBLE_TIME = true;
+
 	public static int LimitTime = 30;
 	public static int CurrentLvl = 0;
 	public static int Points = 0;
@@ -76,16 +80,7 @@ public static class Global
 	}
 	public static void LoadLvlLose()
 	{
-		try
-		{
-			UserParametrs.UserScore = Points;
-			GameMixerAPI.Methods.SetScore(UserParametrs.UserID.ToString(),UserParametrs.UserScore.ToString());
-			GameMixerAPI.Methods.GetPosition(UserParametrs.UserID.ToString());
-		}
-		catch
-		{
-
-		}
+		NetworkConnector.UpdateData();
 		SplashImage.SetSprite("Splash/lose");
 		CurrentLvl = 0;
 		LoadLvl(1);
@@ -93,8 +88,37 @@ public static class Global
 
 	public static void StartGame()
 	{
+		switch(MODE)
+		{
+		case 0:
+			//StandartMode();
+			break;
+		case 1:
+			StandartMode();
+			break;
+		case 2:
+			HardCoreMode();
+			break;
+		}
+	}
+
+	private static void HardCoreMode()
+	{
+		VISIBLE_TIME = false;
+		VISIBLE_SCORE = true;
+		Global.LimitTime = 99999;
+		CurrentLvl = 0;
+		Points = 0;
+		SummaryTime = 0.0f;
+		CurrentLvl = GetRandom();
+		LoadLvl(1);
+	}
+
+	private static void StandartMode()
+	{
+		VISIBLE_TIME = VISIBLE_SCORE = true;
 		Global.LimitTime = 30;
-	    CurrentLvl = 0;
+		CurrentLvl = 0;
 		Points = 0;
 		SummaryTime = 0.0f;
 		CurrentLvl = GetRandom();
