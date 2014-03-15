@@ -8,7 +8,8 @@ public class CameraScript : MonoBehaviour {
 	public GUIStyle TimerStyle;
 	public Texture2D SoundOnTexture;
 	public Texture2D SoundOffTexture;
-	
+	public GUISkin SkinMenu;
+
 	public int SecondForTick = 5;
 	private bool menuActive = false;
 	void Start () {
@@ -45,6 +46,7 @@ public class CameraScript : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.skin = SkinMenu;
 		GUIParam.CallMenu(ref menuActive,SoundOnTexture,SoundOffTexture);
 	}
 }

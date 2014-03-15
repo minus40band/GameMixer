@@ -14,11 +14,11 @@ public static class NetworkConnector
 {
 	public static void UpdateData()
 	{
-		Debug.Log ("UserID: " + UserParametrs.UserID);
-		Debug.Log ("UserName: " + UserParametrs.UserName);
-		Debug.Log ("UserPosition: " + UserParametrs.UserPosition);
-		Debug.Log ("UserScore: " + UserParametrs.UserScore);
-		Debug.Log ("Points: " + Global.Points);
+		//Debug.Log ("UserID: " + UserParametrs.UserID);
+		//Debug.Log ("UserName: " + UserParametrs.UserName);
+		//Debug.Log ("UserPosition: " + UserParametrs.UserPosition);
+		//Debug.Log ("UserScore: " + UserParametrs.UserScore);
+		//Debug.Log ("Points: " + Global.Points);
 		if(String.IsNullOrEmpty(UserParametrs.UserName) || UserParametrs.UserID <=0)
 		{
 			return;

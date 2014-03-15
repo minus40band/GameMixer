@@ -43,7 +43,7 @@ public static class GUIParam
 		MenuButton1 = new Rect(PosX,NumberGUIElement * PosY,Width,Height);
 		NumberGUIElement++;
 		MenuButton2 = new Rect(PosX,NumberGUIElement * PosY + RightIndent,Width,Height);
-		SoundButton = new Rect(Device.Width-Device.Width/4,TimeLabel.y + 40,Device.Width/4,Device.Width/4);
+		SoundButton = new Rect(Device.Width-Device.Width/8,TimeLabel.y + 40,Device.Width/8,Device.Width/8);
 	}
 	private static void StatusGUTInit()
 	{
@@ -73,6 +73,7 @@ public static class GUIParam
 			{
 				menuActive = false;
 				Time.timeScale = 1;
+				Global.MODE = 0;
 				Application.LoadLevel(0);
 			}
 			if(Global.SOUND_VOICE == 0)
