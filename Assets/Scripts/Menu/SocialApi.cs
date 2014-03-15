@@ -5,6 +5,8 @@ public class SocialApi : MonoBehaviour {
 	
 	void Start () {
 
+
+
 		// Authenticate and register a ProcessAuthentication callback
 		// This call needs to be made before we can proceed to other calls in the Social API
 		Social.localUser.Authenticate (ProcessAuthentication);

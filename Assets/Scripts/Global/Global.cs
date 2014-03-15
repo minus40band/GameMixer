@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
+using GameMixerAPI;
 using System.Collections;
 
 public static class Global 
 {
+	public static int MODE = 0;
+	public static bool VISIBLE_SCORE = true;
+	public static bool VISIBLE_TIME = true;
+
 	public static int LimitTime = 30;
 	public static int CurrentLvl = 0;
 	public static int Points = 0;
@@ -14,7 +19,10 @@ public static class Global
 		Levels_Labirint,
 		Levels_Bread,
 		Levels_Puke,
-		Levels_Dead
+		Levels_Dead,
+		Levels_Balance,
+		Levels_Cube,
+		Levels_DedRally
 	}
 	public static void AddTime()
 	{
@@ -72,6 +80,7 @@ public static class Global
 	}
 	public static void LoadLvlLose()
 	{
+		NetworkConnector.UpdateData();
 		SplashImage.SetSprite("Splash/lose");
 		CurrentLvl = 0;
 		LoadLvl(1);
@@ -79,8 +88,37 @@ public static class Global
 
 	public static void StartGame()
 	{
+		switch(MODE)
+		{
+		case 0:
+			//StandartMode();
+			break;
+		case 1:
+			StandartMode();
+			break;
+		case 2:
+			HardCoreMode();
+			break;
+		}
+	}
+
+	private static void HardCoreMode()
+	{
+		VISIBLE_TIME = false;
+		VISIBLE_SCORE = true;
+		Global.LimitTime = 99999;
+		CurrentLvl = 0;
+		Points = 0;
+		SummaryTime = 0.0f;
+		CurrentLvl = GetRandom();
+		LoadLvl(1);
+	}
+
+	private static void StandartMode()
+	{
+		VISIBLE_TIME = VISIBLE_SCORE = true;
 		Global.LimitTime = 30;
-	    CurrentLvl = 0;
+		CurrentLvl = 0;
 		Points = 0;
 		SummaryTime = 0.0f;
 		CurrentLvl = GetRandom();

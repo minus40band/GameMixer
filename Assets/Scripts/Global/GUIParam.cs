@@ -55,7 +55,9 @@ public static class GUIParam
 	}
 	public static void CallMenu(ref bool menuActive)
 	{
+		if(Global.VISIBLE_SCORE)
 		GUI.Label(ScoreLabel,"Score:" + Global.Points,ScoreStyle);
+		if(Global.VISIBLE_TIME)
 		GUI.Label(TimeLabel,"Time:" + (Global.LimitTime-(int)Global.SummaryTime),TimerStyle);
 		if(menuActive)
 		{
