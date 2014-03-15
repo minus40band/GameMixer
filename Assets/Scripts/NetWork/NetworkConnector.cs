@@ -14,15 +14,24 @@ public static class NetworkConnector
 {
 	public static void UpdateData()
 	{
+		Debug.Log ("UserID: " + UserParametrs.UserID);
+		Debug.Log ("UserName: " + UserParametrs.UserName);
+		Debug.Log ("UserPosition: " + UserParametrs.UserPosition);
+		Debug.Log ("UserScore: " + UserParametrs.UserScore);
+		Debug.Log ("Points: " + Global.Points);
 		if(String.IsNullOrEmpty(UserParametrs.UserName) || UserParametrs.UserID <=0)
 		{
 			return;
+		}
+		if(UserParametrs.UserScore<Global.Points)
+		{
+			UserParametrs.UserScore = Global.Points;
 		}
 		try
 		{
 
 			int ServerScore = GameMixerAPI.Methods.GetScore(UserParametrs.UserID);
-			if(UserParametrs.UserScore>ServerScore)
+			if(Global.Points>ServerScore)
 			{
 				UserParametrs.UserScore = Global.Points;
 				GameMixerAPI.Methods.SetScore(UserParametrs.UserID,UserParametrs.UserScore);
@@ -40,6 +49,7 @@ public static class NetworkConnector
 		}
 		catch(Exception ex)
 		{
+
 			Debug.Log(ex.Message);
 		}
 	}

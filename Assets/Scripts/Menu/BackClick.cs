@@ -26,7 +26,7 @@ public class BackClick : MonoBehaviour {
 
 	void OnGUI()
 	{
-		Rect r = new Rect(Device.Width-100,0,Device.Width/4,Device.Width/4);
+		Rect r = new Rect(Device.Width-Device.Width/4,0,Device.Width/4,Device.Width/4);
 		if(Global.SOUND_VOICE == 0)
 		{
 			GUI.DrawTexture(r, soundOnTexture);
