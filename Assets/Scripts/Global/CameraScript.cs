@@ -6,6 +6,9 @@ public class CameraScript : MonoBehaviour {
 	// Use this for initialization
 	public GUIStyle ScoreStyle;
 	public GUIStyle TimerStyle;
+	public Texture2D SoundOnTexture;
+	public Texture2D SoundOffTexture;
+	
 	public int SecondForTick = 5;
 	private bool menuActive = false;
 	void Start () {
@@ -21,6 +24,7 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		(this.GetComponent("AudioSource") as AudioSource).volume = Global.SOUND_VOICE;
 		Global.AddTime();
 		if(Input.GetKey(KeyCode.Escape))
 		{
@@ -41,6 +45,6 @@ public class CameraScript : MonoBehaviour {
 
 	void OnGUI()
 	{
-		GUIParam.CallMenu(ref menuActive);
+		GUIParam.CallMenu(ref menuActive,SoundOnTexture,SoundOffTexture);
 	}
 }

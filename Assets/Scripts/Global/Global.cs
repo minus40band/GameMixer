@@ -7,6 +7,7 @@ public static class Global
 	public static int MODE = 0;
 	public static bool VISIBLE_SCORE = true;
 	public static bool VISIBLE_TIME = true;
+	public static int SOUND_VOICE = 100;
 
 	public static int LimitTime = 30;
 	public static int CurrentLvl = 0;

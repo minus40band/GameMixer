@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class StaticSpeed : MonoBehaviour {
@@ -7,7 +7,7 @@ public class StaticSpeed : MonoBehaviour {
 	public float SpeedX = 0;
 	public bool OnlySpeedX = false;
 	public float SpeedY = 0;
-	public bool OnlySpeedy = false;
+	public bool OnlySpeedY = false;
 	// Use this for initialization
 	void Start () {
 	
