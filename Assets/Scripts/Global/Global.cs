@@ -80,7 +80,18 @@ public static class Global
 	}
 	public static void LoadLvlLose()
 	{
-		NetworkConnector.UpdateData();
+		switch(MODE)
+		{
+		case 0:
+			//StandartMode();
+			break;
+		case 1:
+			NetworkConnector.UpdateData();
+			break;
+		case 2:
+			//
+			break;
+		}
 		SplashImage.SetSprite("Splash/lose");
 		CurrentLvl = 0;
 		LoadLvl(1);
