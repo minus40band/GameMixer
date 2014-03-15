@@ -41,7 +41,7 @@ public class StartNetworkScript : MonoBehaviour {
 			if (GUI.Button (element4, "SignUp"))
 			{
 				UserParametrs.UserName = TextBoxName;
-				UserParametrs.UserID = GameMixerAPI.Methods.Registration(UserParametrs.UserName,500);//UserParametrs.UserScore);
+				UserParametrs.UserID = GameMixerAPI.Methods.Registration(UserParametrs.UserName,UserParametrs.UserScore);
 				NetworkConnector.UpdateData();
 			}
 			if (GUI.Button (element5, "SignIn"))
