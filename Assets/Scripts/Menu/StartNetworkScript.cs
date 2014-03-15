@@ -16,21 +16,22 @@ public class StartNetworkScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		UserParametrs.UserScore = PlayerPrefs.GetInt("Score");
-		UserParametrs.UserID = PlayerPrefs.GetInt("ID");
-		UserParametrs.UserName = PlayerPrefs.GetString("Name");
-		if(UserParametrs.UserID < 0)
+		Debug.Log (UserParametrs.UserID);
+		Debug.Log (UserParametrs.UserName);
+		Debug.Log (UserParametrs.UserPosition);
+		Debug.Log (UserParametrs.UserScore);
+		try
 		{
-			PlayerPrefs.SetInt("ID",UserParametrs.UserID);
+			UserParametrs.UserScore = PlayerPrefs.GetInt("Score");
+			UserParametrs.UserID = PlayerPrefs.GetInt("ID");
+			UserParametrs.UserName = PlayerPrefs.GetString("Name");
+			UserParametrs.UserPosition = PlayerPrefs.GetInt("Position");
 		}
-		if(System.String.IsNullOrEmpty(UserParametrs.UserName))
+		catch(UnityException ex)
 		{
-			PlayerPrefs.SetInt("Name",UserParametrs.UserID);
+
 		}
-		if(UserParametrs.UserScore < 0)
-		{
-			PlayerPrefs.SetInt("Score",UserParametrs.UserScore);
-		}
+
 		element1 = new Rect(GUIParam.ScoreLabel.x,GUIParam.ScoreLabel.y,width,heigth);
 		element2 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width,heigth);
 		element3 = new Rect(GUIParam.ScoreLabel.x,heigth * 2 + GUIParam.ScoreLabel.y,width,heigth);
@@ -58,6 +59,7 @@ public class StartNetworkScript : MonoBehaviour {
 				UserParametrs.UserName = TextBoxName;
 				UserParametrs.UserID = GameMixerAPI.Methods.Registration(UserParametrs.UserName,UserParametrs.UserScore);
 				NetworkConnector.UpdateData();
+
 			}
 			if (GUI.Button (element5, "SignIn"))
 			{

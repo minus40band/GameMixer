@@ -20,6 +20,7 @@ public static class NetworkConnector
 		}
 		try
 		{
+
 			int ServerScore = GameMixerAPI.Methods.GetScore(UserParametrs.UserID);
 			if(UserParametrs.UserScore>ServerScore)
 			{
@@ -31,6 +32,11 @@ public static class NetworkConnector
 				UserParametrs.UserScore = ServerScore;
 			}
 			UserParametrs.UserPosition = GameMixerAPI.Methods.GetPosition(UserParametrs.UserID);
+			PlayerPrefs.SetString("Name",UserParametrs.UserName);
+			PlayerPrefs.SetInt("ID",UserParametrs.UserID);
+			PlayerPrefs.SetInt("Score",UserParametrs.UserScore);
+			PlayerPrefs.SetInt("Position",UserParametrs.UserPosition);
+			PlayerPrefs.Save();
 		}
 		catch(Exception ex)
 		{
