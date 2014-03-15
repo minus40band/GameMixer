@@ -16,6 +16,7 @@ public static class GUIParam
 	public static Rect MenuLabel1;
 	public static Rect MenuButton1;
 	public static Rect MenuButton2;
+	public static Rect SoundButton;
 	public static Rect ScoreLabel;
 	public static Rect TimeLabel;
 	public static GUIStyle ScoreStyle;
@@ -42,6 +43,7 @@ public static class GUIParam
 		MenuButton1 = new Rect(PosX,NumberGUIElement * PosY,Width,Height);
 		NumberGUIElement++;
 		MenuButton2 = new Rect(PosX,NumberGUIElement * PosY + RightIndent,Width,Height);
+		SoundButton = new Rect(Device.Width-Device.Width/8,TimeLabel.y + 40,Device.Width/8,Device.Width/8);
 	}
 	private static void StatusGUTInit()
 	{
@@ -53,7 +55,7 @@ public static class GUIParam
 		ScoreLabel = new Rect(PosX1,PosY1,Width,Height);
 		TimeLabel = new Rect(PosX2,PosY1,Width,Height);
 	}
-	public static void CallMenu(ref bool menuActive)
+	public static void CallMenu(ref bool menuActive,Texture soundOn,Texture soundOff)
 	{
 		if(Global.VISIBLE_SCORE)
 		GUI.Label(ScoreLabel,"Score:" + Global.Points,ScoreStyle);
@@ -71,8 +73,26 @@ public static class GUIParam
 			{
 				menuActive = false;
 				Time.timeScale = 1;
+				Global.MODE = 0;
 				Application.LoadLevel(0);
 			}
+			if(Global.SOUND_VOICE == 0)
+			{
+				GUI.DrawTexture(SoundButton, soundOn);
+				if (GUI.Button(SoundButton,""))
+				{
+					Global.SOUND_VOICE = 100;
+				}
+			}
+			else
+			{
+				GUI.DrawTexture(SoundButton, soundOff);
+				if (GUI.Button(SoundButton,""))
+				{
+					Global.SOUND_VOICE = 0;
+				}
+			}
+
 		}
 	}
 }		

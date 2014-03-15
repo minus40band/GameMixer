@@ -49,7 +49,7 @@ public static class SplashImage
 			//text = "SHAKE";
 			break;
 		case (int)Global.Levels.Levels_Cube:
-			SetSprite("Splash/pick");
+			SetSprite("Splash/poke");
 			//text = "SHAKE";
 			break;
 		case (int)Global.Levels.Levels_DedRally:

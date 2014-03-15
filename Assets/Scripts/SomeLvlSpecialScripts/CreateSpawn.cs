@@ -19,7 +19,7 @@ public class CreateSpawn : MonoBehaviour {
 			System.Random r = new System.Random();
 			for(int i=0;i<Count;i++)
 			{
-				Vector3 vect = new Vector3(this.transform.position.x + r.Next(-5,5),this.transform.position.y + r.Next(-5,5),this.transform.position.z + r.Next(-5,5));
+				Vector3 vect = new Vector3(this.transform.position.x + r.Next(-5,5),this.transform.position.y + r.Next(-5,5),5);
 				Instantiate(Resources.Load(ResourseName),vect,Quaternion.identity);
 			}
 			spawn = false;

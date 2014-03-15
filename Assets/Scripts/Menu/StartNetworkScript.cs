@@ -13,23 +13,31 @@ public class StartNetworkScript : MonoBehaviour {
 	private Rect element3;
 	private Rect element4;
 	private Rect element5;
+	public bool VisibleNetworkSettings = false;
+	private bool Coonect = false;
 	// Use this for initialization
 	void Start () 
 	{
-		UserParametrs.UserScore = PlayerPrefs.GetInt("Score");
-		UserParametrs.UserID = PlayerPrefs.GetInt("ID");
-		UserParametrs.UserName = PlayerPrefs.GetString("Name");
-		if(UserParametrs.UserID < 0)
+		Debug.Log ("Start Log. User ID: " + UserParametrs.UserID);
+		//Debug.Log (UserParametrs.UserName);
+		//Debug.Log (UserParametrs.UserPosition);
+		//Debug.Log (UserParametrs.UserScore);
+		try
 		{
-			PlayerPrefs.SetInt("ID",UserParametrs.UserID);
+			UserParametrs.UserScore = PlayerPrefs.GetInt("Score");
+			UserParametrs.UserID = PlayerPrefs.GetInt("ID");
+			UserParametrs.UserName = PlayerPrefs.GetString("Name");
+			UserParametrs.UserPosition = PlayerPrefs.GetInt("Position");
+
 		}
-		if(System.String.IsNullOrEmpty(UserParametrs.UserName))
+		catch(UnityException ex)
 		{
-			PlayerPrefs.SetInt("Name",UserParametrs.UserID);
+
 		}
-		if(UserParametrs.UserScore < 0)
+		//Debug.Log (GameMixerAPI.Methods.GetIDByName(UserParametrs.UserName));
+		if(GameMixerAPI.Methods.GetIDByName(UserParametrs.UserName)<=0)
 		{
-			PlayerPrefs.SetInt("Score",UserParametrs.UserScore);
+			Debug.Log (GameMixerAPI.Methods.Registration(UserParametrs.UserName,UserParametrs.UserScore));
 		}
 		element1 = new Rect(GUIParam.ScoreLabel.x,GUIParam.ScoreLabel.y,width,heigth);
 		element2 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width,heigth);
@@ -51,6 +59,15 @@ public class StartNetworkScript : MonoBehaviour {
 	public void GUIElement()
 	{
 		GUI.skin = SkinName;
+
+		if(VisibleNetworkSettings)
+		{
+			NetworkElements();
+		}
+
+	}
+	private void NetworkElements()
+	{
 		if(System.String.IsNullOrEmpty(UserParametrs.UserName) || UserParametrs.UserID<=0)
 		{
 			if (GUI.Button (element4, "SignUp"))
@@ -58,6 +75,7 @@ public class StartNetworkScript : MonoBehaviour {
 				UserParametrs.UserName = TextBoxName;
 				UserParametrs.UserID = GameMixerAPI.Methods.Registration(UserParametrs.UserName,UserParametrs.UserScore);
 				NetworkConnector.UpdateData();
+				
 			}
 			if (GUI.Button (element5, "SignIn"))
 			{

@@ -26,6 +26,7 @@ public class ClickButton : MonoBehaviour {
 	{
 		if(mode == -1)
 		{
+			if(Global.MODE>0)
 			Global.StartGame();
 		}
 		else

@@ -7,6 +7,7 @@ public static class Global
 	public static int MODE = 0;
 	public static bool VISIBLE_SCORE = true;
 	public static bool VISIBLE_TIME = true;
+	public static int SOUND_VOICE = 100;
 
 	public static int LimitTime = 30;
 	public static int CurrentLvl = 0;
@@ -74,6 +75,21 @@ public static class Global
 	}
 	public static void LoadLvlLose(int lvl)
 	{
+		switch(MODE)
+		{
+		case 0:
+			//NetworkConnector.UpdateData();
+			//StandartMode();
+			break;
+		case 1:
+			NetworkConnector.UpdateData();
+			break;
+		case 2:
+			//
+			//NetworkConnector.UpdateData();
+			break;
+		}
+		MODE = 0;
 		SplashImage.SetSprite("Splash/lose");
 		CurrentLvl = 0;
 		LoadLvl(1);
@@ -83,6 +99,7 @@ public static class Global
 		switch(MODE)
 		{
 		case 0:
+			//NetworkConnector.UpdateData();
 			//StandartMode();
 			break;
 		case 1:
@@ -90,8 +107,10 @@ public static class Global
 			break;
 		case 2:
 			//
+			//NetworkConnector.UpdateData();
 			break;
 		}
+		MODE = 0;
 		SplashImage.SetSprite("Splash/lose");
 		CurrentLvl = 0;
 		LoadLvl(1);
