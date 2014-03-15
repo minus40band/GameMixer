@@ -16,6 +16,21 @@ public class StartNetworkScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		UserParametrs.UserScore = PlayerPrefs.GetInt("Score");
+		UserParametrs.UserID = PlayerPrefs.GetInt("ID");
+		UserParametrs.UserName = PlayerPrefs.GetString("Name");
+		if(UserParametrs.UserID < 0)
+		{
+			PlayerPrefs.SetInt("ID",UserParametrs.UserID);
+		}
+		if(System.String.IsNullOrEmpty(UserParametrs.UserName))
+		{
+			PlayerPrefs.SetInt("Name",UserParametrs.UserID);
+		}
+		if(UserParametrs.UserScore < 0)
+		{
+			PlayerPrefs.SetInt("Score",UserParametrs.UserScore);
+		}
 		element1 = new Rect(GUIParam.ScoreLabel.x,GUIParam.ScoreLabel.y,width,heigth);
 		element2 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width,heigth);
 		element3 = new Rect(GUIParam.ScoreLabel.x,heigth * 2 + GUIParam.ScoreLabel.y,width,heigth);
