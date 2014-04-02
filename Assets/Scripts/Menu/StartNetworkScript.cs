@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class StartNetworkScript : MonoBehaviour {
@@ -14,11 +14,10 @@ public class StartNetworkScript : MonoBehaviour {
 	private Rect element4;
 	private Rect element5;
 	public bool VisibleNetworkSettings = false;
-	private bool Coonect = false;
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log ("Start Log. User ID: " + UserParametrs.UserID);
+		//Debug.Log ("Start Log. User ID: " + UserParametrs.UserID);
 		//Debug.Log (UserParametrs.UserName);
 		//Debug.Log (UserParametrs.UserPosition);
 		//Debug.Log (UserParametrs.UserScore);
@@ -28,11 +27,10 @@ public class StartNetworkScript : MonoBehaviour {
 			UserParametrs.UserID = PlayerPrefs.GetInt("ID");
 			UserParametrs.UserName = PlayerPrefs.GetString("Name");
 			UserParametrs.UserPosition = PlayerPrefs.GetInt("Position");
-
 		}
 		catch(UnityException ex)
 		{
-
+			Debug.Log(ex.Message);
 		}
 		//Debug.Log (GameMixerAPI.Methods.GetIDByName(UserParametrs.UserName));
 		if(GameMixerAPI.Methods.GetIDByName(UserParametrs.UserName)<=0)

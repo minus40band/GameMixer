@@ -16,18 +16,21 @@ public class SliderController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if((this.transform.position.x + Input.GetTouch(0).deltaPosition.x * Speed>LeftX) 
-		   && (this.transform.position.x + Input.GetTouch(0).deltaPosition.x * Speed<RightX))
+		if(Input.touchCount>0)
 		{
-			this.transform.position = new Vector3(this.transform.position.x + Input.GetTouch(0).deltaPosition.x * Speed,this.transform.position.y,this.transform.position.z);
-		}
-		if(this.transform.position.x > LeftX && this.transform.position.x < LeftX + 2)
-		{
-			(this.GetComponent("StartNetworkScript") as StartNetworkScript).VisibleNetworkSettings = true;
-		}
-		else
-		{
-			(this.GetComponent("StartNetworkScript") as StartNetworkScript).VisibleNetworkSettings = false;
+			if((this.transform.position.x + Input.GetTouch(0).deltaPosition.x * Speed>LeftX) 
+			   && (this.transform.position.x + Input.GetTouch(0).deltaPosition.x * Speed<RightX))
+			{
+				this.transform.position = new Vector3(this.transform.position.x + Input.GetTouch(0).deltaPosition.x * Speed,this.transform.position.y,this.transform.position.z);
+			}
+			if(this.transform.position.x > LeftX && this.transform.position.x < LeftX + 2)
+			{
+				(this.GetComponent("StartNetworkScript") as StartNetworkScript).VisibleNetworkSettings = true;
+			}
+			else
+			{
+				(this.GetComponent("StartNetworkScript") as StartNetworkScript).VisibleNetworkSettings = false;
+			}
 		}
 	}
 }

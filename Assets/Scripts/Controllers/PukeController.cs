@@ -93,9 +93,9 @@ public class PukeController : MonoBehaviour {
 	}
 	private void StartRainbowAnimation()
 	{	
-		GameObject rainbow = GameObject.FindWithTag ("Achive");
-		(rainbow.GetComponent ("SpriteRenderer") as SpriteRenderer).enabled = true;
-		(rainbow.GetComponent ("Animator") as Animator).enabled = true; 
+		//GameObject rainbow = GameObject.FindWithTag ("Achive");
+		//(this.GetComponent ("SpriteRenderer") as SpriteRenderer).enabled = true;
+		(this.GetComponent ("Animator") as Animator).enabled = true; 
 
 	}
 
