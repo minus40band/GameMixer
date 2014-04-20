@@ -85,6 +85,11 @@ public class StartNetworkScript : MonoBehaviour {
 		}
 		else
 		{
+			element1 = new Rect(GUIParam.ScoreLabel.x,GUIParam.ScoreLabel.y,width,heigth);
+			element2 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width,heigth);
+			element3 = new Rect(GUIParam.ScoreLabel.x,heigth * 2 + GUIParam.ScoreLabel.y,width,heigth);
+			element4 = new Rect(GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width/2,heigth);
+			element5 = new Rect((width/2) + GUIParam.ScoreLabel.x,heigth + GUIParam.ScoreLabel.y,width/2,heigth);
 			GUI.Label(element1,"Name: " + UserParametrs.UserName,StyleName);
 			GUI.Label(element2,"Score: " + UserParametrs.UserScore.ToString(),StyleName);
 			GUI.Label(element3,"Rating: " + UserParametrs.UserPosition.ToString(),StyleName);

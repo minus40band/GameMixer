@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BackClick : MonoBehaviour {
@@ -8,10 +8,10 @@ public class BackClick : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		soundOnTexture.width = 100;
-		soundOnTexture.height = 100;
-		soundOffTexture.width = 100;
-		soundOffTexture.height = 100;
+//		soundOnTexture.width = 100;
+//		soundOnTexture.height = 100;
+//		soundOffTexture.width = 100;
+//		soundOffTexture.height = 100;
 	}
 	
 	// Update is called once per frame
